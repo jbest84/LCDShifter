@@ -120,6 +120,10 @@ void LCDShifter::writeData(const char *str) {
 	}
 }
 
+/**
+ * Initializes the LCD.
+ * See page 45 in the HD44780.pdf datasheet
+ */
 void LCDShifter::begin() {
 	delayMicroseconds(50000);
 
@@ -142,7 +146,7 @@ void LCDShifter::begin() {
 	sendCommand(LCD_CMD_FUNCTION_SET | LCD_CMDOP_FUNC_INTERFACE_8BIT | LCD_CMDOP_FUNC_DISPLAY_2LINES);
 
 	//**************************
-	// Final initialization table (page 45)
+	// Final initialization table
 	sendCommand(LCD_CMD_FUNCTION_SET | LCD_CMDOP_FUNC_INTERFACE_8BIT | LCD_CMDOP_FUNC_DISPLAY_2LINES);
 
 	sendCommand(LCD_CMD_DISPLAY | LCD_CMDOP_DISP_ON);
